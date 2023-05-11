@@ -20,5 +20,8 @@ export const QUERY_LANGUAGES = [
   { value: 'Redis', label: 'Redis' },
   { value: 'MongoDB', label: 'MongoDB' },
   { value: 'Cassandra', label: 'Cassandra' },
-  { value: 'DynamoDB', label: 'DynamoDB' }
+  { value: 'DynamoDB', label: 'DynamoDB' },
+  { value: 'Databricks', label: 'Databricks' },
+  { value: 'BigQuery', label: 'BigQuery' },
+  { value: 'Snowflake', label: 'Snowflake' }
 ]
