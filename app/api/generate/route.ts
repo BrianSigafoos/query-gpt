@@ -1,16 +1,16 @@
 import { GenerateBody } from '@/types/types'
-import { OpenAIStream } from '@/utils'
+import { OpenAIStream } from '@/lib/openai'
 
 export const runtime = 'edge'
 
 export async function POST (req: Request): Promise<Response> {
   try {
-    const { queryLanguage, querySchema, question, model, apiKey } =
+    const { queryLanguage, dataSchema, question, model, apiKey } =
       (await req.json()) as GenerateBody
 
     const stream = await OpenAIStream(
       queryLanguage,
-      querySchema,
+      dataSchema,
       question,
       model,
       apiKey
