@@ -38,5 +38,5 @@ const languages = [
   { value: 'Redis', label: 'Redis' },
   { value: 'MongoDB', label: 'MongoDB' },
   { value: 'Cassandra', label: 'Cassandra' },
-  { value: 'DynamoDB', label: 'DynamoDB' },
+  { value: 'DynamoDB', label: 'DynamoDB' }
 ]
