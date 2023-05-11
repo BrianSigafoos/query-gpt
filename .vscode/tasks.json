@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "label": "npm: dev",
+      "detail": "next dev",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "npm",
+      "script": "fix",
+      "problemMatcher": [],
+      "label": "npm: fix",
+      "detail": "eslint and ts-standard"
+    },
+    {
+      "type": "shell",
+      "label": "fix file",
+      "command": "npx eslint --fix \"${relativeFile}\"; npx ts-standard --fix \"${relativeFile}\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}
