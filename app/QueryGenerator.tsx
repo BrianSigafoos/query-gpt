@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, FC } from 'react'
+import { useState, useEffect } from 'react'
 
 import { APIKeyInput } from '@/components/APIKeyInput'
 import { CodeBlock } from '@/components/CodeBlock'
