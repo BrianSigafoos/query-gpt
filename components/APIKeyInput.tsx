@@ -6,9 +6,9 @@ interface Props {
 export const APIKeyInput: React.FC<Props> = ({ apiKey, onChange }) => {
   return (
     <input
-      className='text-sm txt-input'
+      className='txt-input text-sm'
       type='password'
-      placeholder='OpenAI API Key'
+      placeholder='API Key'
       value={apiKey}
       onChange={(e) => onChange(e.target.value)}
     />

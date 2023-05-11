@@ -1,12 +1,15 @@
 'use client'
 
+import { useState, useEffect, FC } from 'react'
+
 import { APIKeyInput } from '@/components/APIKeyInput'
 import { CodeBlock } from '@/components/CodeBlock'
 import { LanguageSelect } from '@/components/LanguageSelect'
 import { ModelSelect } from '@/components/ModelSelect'
 import { TextBlock } from '@/components/TextBlock'
+
 import { OpenAIModel, GenerateBody } from '@/types/types'
-import { useState, useEffect, FC } from 'react'
+import { MAX_COMBINED_LENGTH } from '@/lib/constants'
 
 export default function QueryGenerator () {
   const [queryLanguage, setQueryLanguage] = useState<string>('GraphQL')
@@ -19,8 +22,6 @@ export default function QueryGenerator () {
   const [apiKey, setApiKey] = useState<string>('')
 
   const handleGenerate = async () => {
-    const maxCodeLength = model === 'gpt-3.5-turbo' ? 6000 : 12000
-
     if (!apiKey) {
       alert('Please enter an API key.')
       return
@@ -36,9 +37,11 @@ export default function QueryGenerator () {
       return
     }
 
-    if (question.length > maxCodeLength) {
+    if (dataSchema.length + question.length > MAX_COMBINED_LENGTH) {
       alert(
-      `Please enter code less than ${maxCodeLength} characters. You are currently at ${question.length} characters.`
+        `Please enter code less than ${MAX_COMBINED_LENGTH} characters. You are currently at ${
+          dataSchema.length + question.length
+        } characters.`
       )
       return
     }
@@ -136,7 +139,7 @@ export default function QueryGenerator () {
           <ModelSelect model={model} onChange={(value) => setModel(value)} />
         </div>
 
-        <div className='w-full mt-2 sm:mt-0 '>
+        <div className='mt-2 w-full sm:mt-0 '>
           <APIKeyInput apiKey={apiKey} onChange={handleApiKeyChange} />
         </div>
       </div>
@@ -147,14 +150,12 @@ export default function QueryGenerator () {
         onChange={(value) => {
           setQueryLanguage(value)
           setHasGenerated(false)
-        // setQuestion('')
-        // setOutputCode('')
         }}
       />
 
       <h4>Schema</h4>
-      <p className="txt-subtitle text-sm -mt-3 mb-2">
-        Paste in your data's schema, or simply describe it.
+      <p className='txt-subtitle -mt-3 mb-2 text-sm'>
+        Paste in your data schema, or simply describe it.
       </p>
       <div className='text-left'>
         <TextBlock
@@ -168,7 +169,7 @@ export default function QueryGenerator () {
       </div>
 
       <h4>Question</h4>
-      <p className="txt-subtitle text-xs -mt-3 mb-2">
+      <p className='txt-subtitle -mt-3 mb-2 text-xs'>
         What do you want to know about your data?
       </p>
       <TextBlock
@@ -190,12 +191,10 @@ export default function QueryGenerator () {
 
       <h4>
         Generated query
-        <span className="txt-color-primary"> in </span>
+        <span className='txt-color-primary'> in </span>
         {queryLanguage}
       </h4>
-      <div className='text-left'>
-        <CodeBlock code={outputCode} />
-      </div>
+      <CodeBlock code={outputCode} />
     </>
   )
 }

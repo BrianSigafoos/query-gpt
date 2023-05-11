@@ -12,7 +12,7 @@ export const TextBlock: React.FC<Props> = ({
   return (
     <div className='relative'>
       <textarea
-        className='py-1.5 txt-input'
+        className='txt-input py-1.5'
         style={{ resize: 'none' }}
         value={text}
         rows={2}

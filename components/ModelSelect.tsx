@@ -1,10 +1,7 @@
 import { OpenAIModel } from '@/types/types'
 import { FC } from 'react'
 
-const languageModels = [
-  { value: 'gpt-3.5-turbo', label: 'OpenAI GPT-3.5' },
-  { value: 'gpt-4', label: 'OpenAI GPT-4' }
-]
+import { LANGUAGE_MODELS } from '@/lib/constants'
 
 interface Props {
   model: OpenAIModel
@@ -17,18 +14,14 @@ export const ModelSelect: FC<Props> = ({ model, onChange }) => {
   }
 
   return (
-    <select
-      className='text-sm txt-input'
-      value={model}
-      onChange={handleChange}
-    >
-      {languageModels
-        .sort((a, b) => a.label.localeCompare(b.label))
-        .map((model) => (
+    <select className='txt-input text-sm' value={model} onChange={handleChange}>
+      {LANGUAGE_MODELS.sort((a, b) => a.label.localeCompare(b.label)).map(
+        (model) => (
           <option key={model.value} value={model.value}>
             {model.label}
           </option>
-        ))}
+        )
+      )}
     </select>
   )
 }
