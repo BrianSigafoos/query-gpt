@@ -10,12 +10,17 @@
     "fix": "eslint --fix \"**/*.{js,ts,tsx}\"; ts-standard --fix"
   },
   "dependencies": {
+    "@uiw/codemirror-theme-github": "4.19.16",
+    "@uiw/react-codemirror": "4.19.16",
+    "endent": "2.1.0",
+    "eventsource-parser": "1.0.0",
     "next": "13.4.1",
     "openai": "3.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "0.5.3",
     "@types/node": "20.1.2",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
