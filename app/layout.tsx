@@ -1,8 +1,9 @@
 import './globals.css'
+import { APP_TITLE, APP_DESCRIPTION } from '@/lib/constants'
 
 export const metadata = {
-  title: 'Query GPT',
-  description: 'Create queries using ChatGPT'
+  title: APP_TITLE,
+  description: APP_DESCRIPTION
 }
 
 export default function RootLayout ({
@@ -12,9 +13,7 @@ export default function RootLayout ({
 }) {
   return (
     <html lang='en'>
-      <body className='bg-white text-stone-900 dark:bg-stone-950 dark:text-stone-100'>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
