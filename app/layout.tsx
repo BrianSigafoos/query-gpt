@@ -1,7 +1,7 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'queryGPT',
+  title: 'Query GPT',
   description: 'Create queries using ChatGPT'
 }
 
