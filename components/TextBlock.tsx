@@ -11,7 +11,7 @@ export const TextBlock: React.FC<Props> = ({
 }) => {
   return (
     <textarea
-      className='w-full bg-stone-200 dark:bg-stone-900 p-4 text-[15px] text-neutral-200 focus:outline-none'
+      className='w-full rounded-md border-0 bg-transparent py-1.5 text-gray-900 dark:text-gray-100 ring-1 ring-inset ring-gray-300 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-pink-600'
       style={{ resize: 'none' }}
       value={text}
       onChange={(e) => onChange(e.target.value)}

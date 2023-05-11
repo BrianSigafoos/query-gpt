@@ -38,7 +38,7 @@ export const CodeBlock: FC<Props> = ({
       <CodeMirror
         editable={editable}
         value={code}
-        minHeight='100px'
+        minHeight='60px'
         theme={githubDark}
         onChange={(value) => onChange(value)}
       />

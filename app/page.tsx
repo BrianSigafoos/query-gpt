@@ -141,15 +141,17 @@ export default function Home () {
         </p>
 
         <h4 className=' text-xl font-bold my-4'>
-          Query language
+          ChatGPT
         </h4>
 
-        <div className='mt-6  text-sm'>
-          <APIKeyInput apiKey={apiKey} onChange={handleApiKeyChange} />
-        </div>
+        <div className='mt-6 sm:flex sm:space-x-2'>
+          <div className='w-full text-sm'>
+            <APIKeyInput apiKey={apiKey} onChange={handleApiKeyChange} />
+          </div>
 
-        <div className='mt-2'>
-          <ModelSelect model={model} onChange={(value) => setModel(value)} />
+          <div className='mt-2 sm:mt-0 w-full'>
+            <ModelSelect model={model} onChange={(value) => setModel(value)} />
+          </div>
         </div>
 
         <h4 className=' text-xl font-bold my-4'>
@@ -192,7 +194,7 @@ export default function Home () {
         />
 
         <button
-          className='w-full rounded-md bg-pink-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600'
+          className='mt-2 mb-6 w-full rounded-md bg-pink-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600'
           onClick={async () => await handleGenerate()}
           disabled={loading}
         >
