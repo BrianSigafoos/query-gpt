@@ -16,7 +16,7 @@
     "@uiw/react-codemirror": "4.19.16",
     "endent": "2.1.0",
     "eventsource-parser": "1.0.0",
-    "next": "13.4.2",
+    "next": "13.4.12",
     "openai": "3.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
